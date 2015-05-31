@@ -8,49 +8,75 @@ var ExampleWidget = require('../examples/example-widget');
 
 describe('example-widget', function() {
 
-	var widget;
-	var container = document.querySelector('#test');
+	describe('programmatically', function() {
 
-	it('can be created', function() {
+		var widget;
+		var container = document.querySelector('#test');
 
-		widget = new ExampleWidget();
+		it('can be created', function() {
 
-		expect(widget).to.not.be.null;
+			widget = new ExampleWidget();
 
-	});	
+			expect(widget).to.not.be.null;
 
-
-	it('can be added to the DOM', function() {
-
-		container.appendChild(widget);
-
-		var node = container.querySelector('example-widget');
-
-		expect(node).to.equal(widget);
-
-	});	
+		});	
 
 
-	it('contains its template content', function() {
+		it('can be added to the DOM', function() {
 
-		var node = container.querySelector('example-widget');
+			container.appendChild(widget);
 
-		expect(node.innerHTML).to.not.equal('');
+			var node = container.querySelector('example-widget');
 
-		var span = node.querySelector('span');
+			expect(node).to.equal(widget);
 
-		expect(span.innerText).to.equal('Example Widget');
-
-	});	
+		});	
 
 
-	it('can be removed from the DOM', function() {
+		it('contains its template content', function() {
 
-		container.removeChild(widget);
+			var node = container.querySelector('example-widget');
 
-		var node = container.querySelector('example-widget');
+			expect(node.innerHTML).to.not.equal('');
 
-		expect(node).to.be.null;
+			var span = node.querySelector('span');
+
+			expect(span.innerText).to.equal('Example Widget');
+
+		});	
+
+
+		it('can be removed from the DOM', function() {
+
+			container.removeChild(widget);
+
+			var node = container.querySelector('example-widget');
+
+			expect(node).to.be.null;
+
+		});	
+
+	});
+
+
+	
+
+
+	describe('declaratively', function() {
+
+		var container = document.querySelector('#test');
+
+
+		it('can be added to the DOM', function() {
+
+			container.innerHTML = '<example-widget></example-widget>'
+
+			var node = container.querySelector('example-widget');
+
+			expect(node).to.not.be.null;
+
+		});	
+
 
 	});	
 
