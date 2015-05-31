@@ -31,6 +31,19 @@ describe('example-widget', function() {
 	});	
 
 
+	it('contains its template content', function() {
+
+		var node = container.querySelector('example-widget');
+
+		expect(node.innerHTML).to.not.equal('');
+
+		var span = node.querySelector('span');
+
+		expect(span.innerText).to.equal('Example Widget');
+
+	});	
+
+
 	it('can be removed from the DOM', function() {
 
 		container.removeChild(widget);
