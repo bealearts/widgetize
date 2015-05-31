@@ -24,7 +24,7 @@ gulp.task('build', ['lint']);
 
 
 
-var sources = ['lib/**/*.js', 'test/**/*.js', 'examples/', 'gulpfile.js'];
+var sources = ['lib/**', 'test/**', 'examples/**', 'gulpfile.js'];
 var isDev = false;
 
 
@@ -62,7 +62,7 @@ gulp.task('build-tests', function() {
 gulp.task('watch', function() {
 	isDev = true;
 
-	watch(['app/**', 'test/**', 'gulpfile.js'], function() {
+	watch(sources, function() {
 		gulp.start('run-tests');
 	});
 });

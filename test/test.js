@@ -6,6 +6,13 @@ var expect = require('chai').expect;
 
 var ExampleWidget = require('../examples/example-widget');
 
+after(function(){
+	var container = document.querySelector('#test');
+	container.innerHTML = '';
+});
+
+
+
 describe('example-widget', function() {
 
 	describe('programmatically', function() {
@@ -59,7 +66,7 @@ describe('example-widget', function() {
 	});
 
 
-	
+
 
 
 	describe('declaratively', function() {
