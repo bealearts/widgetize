@@ -53,5 +53,5 @@ module.exports = widgetize(
 ## API
 
 ## Examples
-- [Widget](tree/master/examples/example-widget)
-- [View](tree/master/examples/example-view)
+- [Widget](examples/example-widget)
+- [View](examples/example-view)
