@@ -42,11 +42,12 @@ describe('example-widget', function() {
 
 		it('contains its template content', function() {
 
-			var node = container.querySelector('example-widget');
+			var element = container.querySelector('example-widget');
+			var dom = element.shadowRoot ? element.shadowRoot : element;
 
-			expect(node.innerHTML).to.not.equal('');
+			expect(dom.innerHTML).to.not.equal('');
 
-			var span = node.querySelector('span');
+			var span = dom.querySelector('span');
 
 			expect(span.innerText).to.equal('Example Widget');
 
