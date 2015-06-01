@@ -2,7 +2,7 @@
 'use strict';
 
 var widgetize = require('widgetize');
-var template = require('./example-widget.html');
+var content = require('./example-widget.html');
 var pkg = require('./package.json');
 
 module.exports = widgetize(
@@ -24,5 +24,5 @@ module.exports = widgetize(
 
 		}
 	},
-	template
+	content
 );

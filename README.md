@@ -11,8 +11,44 @@ npm install widgetize --save-dev
 ```
 
 ## Usage
-```js
 
+### JS
+```js
+var widgetize = require('widgetize');
+
+module.exports = widgetize(
+	'time-widget', 
+	{
+		created: function() {
+			this.timer = null;
+		},
+		attached: function() {
+			var span = this._dom.querySelector('span');
+			span.textContent = new Date();
+
+			setInterval(function() {
+				span.textContent = new Date();
+			}.bind(this), 1000);
+		},
+		detached: function() {
+			clearInterval(this.timer);
+		}
+	}, 
+	'The Time is: <span></span>'
+);
 ```
+
+### HTML
+```html
+<html>
+	<head>
+		<script src="bundle.js"></script>
+	</head>
+	<body>
+		<time-widget></time-widget>	
+	</body>
+</html>
+```
+
 
 ## Example
