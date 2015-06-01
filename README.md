@@ -20,18 +20,18 @@ module.exports = widgetize(
 	'time-widget', 
 	{
 		created: function() {
-			this.timer = null;
+			this._timer = null;
 		},
 		attached: function() {
 			var span = this._dom.querySelector('span');
 			span.textContent = new Date();
 
-			setInterval(function() {
+			this._timer = setInterval(function() {
 				span.textContent = new Date();
 			}.bind(this), 1000);
 		},
 		detached: function() {
-			clearInterval(this.timer);
+			clearInterval(this._timer);
 		}
 	}, 
 	'The Time is: <span></span>'
