@@ -1,28 +1,36 @@
 
 'use strict';
 
-var widgetize = require('widgetize');
-var content = require('./example-widget.html');
-var pkg = require('./package.json');
+const widgetize = require('widgetize');
+const template = require('./example-widget.html');
+const pkg = require('./package.json');
 
-module.exports = widgetize(
-	pkg.name, 
+
+/**
+ * Example Widget
+ */
+class ExampleWidget extends widgetize.HTMLElement	// Babel expects a Constructor Function, not an Prototype Object i.e. HTMLElement
+{
+	init() 
 	{
-		created: function() {
 
-		},
+	}
 
-		attached: function() {
+	attach() 
+	{
 
-		},
+	}
 
-		updated: function() {
+	update() 
+	{
 
-		},
+	}
 
-		detached: function() {
+	detach()
+	{
 
-		}
-	},
-	content
-);
+	}	
+}
+
+
+module.exports = widgetize(pkg.name, ExampleWidget, template);

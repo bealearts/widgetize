@@ -19,10 +19,10 @@ var widgetize = require('widgetize');
 module.exports = widgetize(
 	'time-widget', 
 	{
-		created: function() {
+		init: function() {
 			this._timer = null;
 		},
-		attached: function() {
+		attach: function() {
 			var span = this._dom.querySelector('span');
 			span.textContent = new Date();
 
@@ -30,7 +30,7 @@ module.exports = widgetize(
 				span.textContent = new Date();
 			}.bind(this), 1000);
 		},
-		detached: function() {
+		detach: function() {
 			clearInterval(this._timer);
 		}
 	}, 

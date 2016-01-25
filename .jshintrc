@@ -16,6 +16,7 @@
      "validthis": "true",
      "devel": "true",
      "browser": "true",
+     "esnext": "true",
      "globals": {
           "describe": false,
           "it": false,
