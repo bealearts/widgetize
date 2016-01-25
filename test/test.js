@@ -8,7 +8,7 @@ var ExampleWidget = require('../examples/example-widget');
 
 after(function(){
 	var container = document.querySelector('#test');
-	//container.innerHTML = '';
+	container.innerHTML = '';
 });
 
 
@@ -24,7 +24,7 @@ describe('example-widget', function() {
 
 			widget = new ExampleWidget();
 
-			expect(widget).to.not.be.null;
+			var x = expect(widget).to.not.be.null;
 
 		});	
 
@@ -47,22 +47,22 @@ describe('example-widget', function() {
 
 			expect(dom.innerHTML).to.not.equal('');
 
-			var span = dom.querySelector('h3');
+			var h3 = dom.querySelector('h3');
 
-			expect(span.innerText).to.equal('Example Widget');
+			expect(h3.innerText).to.equal('Example Widget');
 
 		});	
 
 
-		// it('can be removed from the DOM', function() {
+		it('can be removed from the DOM', function() {
 
-		// 	container.removeChild(widget);
+			container.removeChild(widget);
 
-		// 	var node = container.querySelector('example-widget');
+			var node = container.querySelector('example-widget');
 
-		// 	expect(node).to.be.null;
+			var x = expect(node).to.be.null;
 
-		// });	
+		});	
 
 	});
 
@@ -70,23 +70,44 @@ describe('example-widget', function() {
 
 
 
-	// describe('declaratively', function() {
+	describe('declaratively', function() {
 
-	// 	var container = document.querySelector('#test');
-
-
-	// 	it('can be added to the DOM', function() {
-
-	// 		container.innerHTML = '<example-widget></example-widget>'
-
-	// 		var node = container.querySelector('example-widget');
-
-	// 		expect(node).to.not.be.null;
-
-	// 	});	
+		var container = document.querySelector('#test');
 
 
-	// });	
+		it('can be added to the DOM', function(done) {
+
+			container.innerHTML = '<example-widget></example-widget>';
+
+			setTimeout(function() {
+				var node = container.querySelector('example-widget');
+
+				var x = expect(node).to.not.be.null;
+
+				done();
+			}, 10);
+
+		});
+
+
+		it('contains its template content', function(done) {
+
+			var element = container.querySelector('example-widget');
+			var dom = element.shadowRoot ? element.shadowRoot : element;
+
+			setTimeout(function() {
+				expect(dom.innerHTML).to.not.equal('');
+
+				var h3 = dom.querySelector('h3');
+
+				expect(h3.innerText).to.equal('Example Widget');
+
+				done();
+			}, 10);
+		});		
+
+
+	});	
 
 });
 

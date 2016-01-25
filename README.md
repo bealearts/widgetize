@@ -14,28 +14,43 @@ npm install widgetize --save-dev
 
 ### JS
 ```js
-var widgetize = require('widgetize');
+const widgetize = require('widgetize');
 
-module.exports = widgetize(
-	'time-widget', 
+/**
+ * Time Widget
+ */
+class TimeWidget extends widgetize.HTMLElement	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+{
+	init() 
 	{
-		init: function() {
-			this._timer = null;
-		},
-		attach: function() {
-			var span = this._dom.querySelector('span');
-			span.textContent = new Date();
+		this._timer = null;
 
-			this._timer = setInterval(function() {
-				span.textContent = new Date();
-			}.bind(this), 1000);
-		},
-		detach: function() {
-			clearInterval(this._timer);
-		}
-	}, 
-	'The Time is: <span></span>'
-);
+		this._timeElement = null;
+	}
+
+	attach(dom) 
+	{
+		this._timeElement = dom.querySelector('time');
+
+		this._timer = setInterval(function() {
+			this.invalidate();
+		}.bind(this), 1000);
+	}
+
+	update(dom) 
+	{
+		this._timeElement.textContent = new Date();
+	}
+
+	detach(dom)
+	{
+		clearInterval(this._timer);
+	}	
+}
+
+
+module.exports = widgetize(time-widget, ExampleWidget, 'The Time is: <span></span>');
+
 ```
 
 ### HTML
