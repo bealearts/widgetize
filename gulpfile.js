@@ -24,7 +24,7 @@ gulp.task('build', ['lint']);
 
 
 
-var sources = ['lib/**/*.js', 'test/**/*.js', 'examples/**/*.js', 'gulpfile.js'];
+var sources = ['lib/**/*.js', 'test/**/*.js', 'examples/**/*.js', '!examples/**/node_modules/**', 'gulpfile.js'];
 var isDev = false;
 
 
