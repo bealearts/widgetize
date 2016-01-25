@@ -1,4 +1,4 @@
-# Widgetize
+# Widgetize  [![Build Status](https://travis-ci.org/bealearts/widgetize.svg)](https://travis-ci.org/bealearts/widgetize) [![npm version](https://badge.fury.io/js/widgetize.svg)](http://badge.fury.io/js/widgetize)
 Custom Element based HTML5 Widgets and Views using Browserify
 
 Create reusable and encapsulated HTML5 widgets and Application Views using HTML5, CSS3 and Javascript. 

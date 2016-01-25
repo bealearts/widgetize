@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '0.10'
+before_script:
+- npm install -g gulp
+deploy:
+  provider: npm
+  email: david.beale@bealearts.co.uk
+  api_key:
+    secure: kOkPruNaipAoPdoojPiRjaJ7iRYbWaYrvlJ1ZWtICFxX7JuwINZQzN5EKjeOdRLjh05WRocy2KwTXZ5TvPjNx6KTBe6p2Ut/NnDmW3XdklyrSSSEJ95c+G6XpcNNItNrnEmI4PHLa5lfIrEL1PuP0NLegksd+9ElgUpTDuxsaeY=
+  on:
+    all_branches: true
+    tags: true
+    repo: bealearts/widgetize
