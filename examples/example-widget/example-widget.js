@@ -18,21 +18,21 @@ class ExampleWidget extends widgetize.HTMLElement	// Babel expects a Constructor
 		this._timeElement = null;
 	}
 
-	attach() 
+	attach(dom) 
 	{
-		this._timeElement = this._dom.querySelector('time');
+		this._timeElement = dom.querySelector('time');
 
 		this._timer = setInterval(function() {
 			this.invalidate();
 		}.bind(this), 1000);
 	}
 
-	update() 
+	update(dom) 
 	{
 		this._timeElement.textContent = new Date();
 	}
 
-	detach()
+	detach(dom)
 	{
 		clearInterval(this._timer);
 	}	
