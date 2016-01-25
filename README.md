@@ -12,7 +12,7 @@ npm install widgetize --save-dev
 
 ## Usage
 
-### JS
+#### JS
 ```js
 const widgetize = require('widgetize');
 
@@ -53,7 +53,7 @@ module.exports = widgetize(time-widget, ExampleWidget, 'The Time is: <span></spa
 
 ```
 
-### HTML
+#### HTML
 ```html
 <html>
 	<head>
