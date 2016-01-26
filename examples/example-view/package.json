@@ -1,0 +1,25 @@
+{
+  "name": "example-view",
+  "main": "ExampleView.js",
+  "browserify": {
+    "transform": [
+      "html2js-browserify",
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "html2js-browserify": "^1.0.0"
+  },
+  "dependencies": {
+    "bindling": "^1.0.1"
+  }
+}

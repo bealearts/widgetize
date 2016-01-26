@@ -5,6 +5,7 @@ var expect = require('chai').expect;
 
 
 var ExampleWidget = require('../examples/example-widget');
+var ExampleView = require('../examples/example-view');
 
 after(function(){
 	var container = document.querySelector('#test');
@@ -111,5 +112,49 @@ describe('example-widget', function() {
 
 });
 
+
+
+describe('example-view', function() {
+
+	describe('declaratively', function() {
+
+		var container = document.querySelector('#test');
+
+
+		it('can be added to the DOM', function(done) {
+
+			container.innerHTML = '<example-view></example-view>';
+
+			setTimeout(function() {
+				var node = container.querySelector('example-view');
+
+				var x = expect(node).to.not.be.null;
+
+				done();
+			}, 10);
+
+		});
+
+
+		it('contains its template content', function(done) {
+
+			var element = container.querySelector('example-view');
+			var dom = element.shadowRoot ? element.shadowRoot : element;
+
+			setTimeout(function() {
+				expect(dom.innerHTML).to.not.equal('');
+
+				var h3 = dom.querySelector('h1');
+
+				expect(h3.innerText).to.equal('Example View');
+
+				done();
+			}, 10);
+		});		
+
+
+	});	
+
+});
 
 

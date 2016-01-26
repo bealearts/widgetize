@@ -1,6 +1,6 @@
 {
   "name": "example-widget",
-  "main": "example-widget.js",
+  "main": "ExampleWidget.js",
   "browserify": {
     "transform": [
       "html2js-browserify",

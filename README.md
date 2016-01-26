@@ -32,9 +32,9 @@ class TimeWidget extends widgetize.HTMLElement	// Babel expects a Constructor Fu
 	{
 		this._timeElement = dom.querySelector('time');
 
-		this._timer = setInterval(function() {
+		this._timer = setInterval(() => {
 			this.invalidate();
-		}.bind(this), 1000);
+		}, 1000);
 	}
 
 	update(dom) 

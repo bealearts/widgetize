@@ -2,7 +2,7 @@
 'use strict';
 
 const widgetize = require('widgetize');
-const template = require('./example-widget.html');
+const template = require('./ExampleWidget.html');
 const pkg = require('./package.json');
 
 
@@ -22,9 +22,9 @@ class ExampleWidget extends widgetize.HTMLElement	// Babel expects a Constructor
 	{
 		this._timeElement = dom.querySelector('time');
 
-		this._timer = setInterval(function() {
+		this._timer = setInterval(() => {
 			this.invalidate();
-		}.bind(this), 1000);
+		}, 1000);
 	}
 
 	update(dom) 
