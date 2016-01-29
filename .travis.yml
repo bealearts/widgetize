@@ -3,7 +3,6 @@ node_js:
 - '0.12'
 before_script:
 - npm install -g gulp
-- cd examples/example-widget/ && npm install && cd ../../
 deploy:
   provider: npm
   email: david.beale@bealearts.co.uk
