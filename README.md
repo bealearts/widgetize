@@ -19,7 +19,7 @@ const widgetize = require('widgetize');
 /**
  * Time Widget
  */
-class TimeWidget extends widgetize.HTMLElement	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
 {
     init() 
     {
