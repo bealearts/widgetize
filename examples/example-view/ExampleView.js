@@ -10,7 +10,7 @@ const bindling = require('bindling');
 /**
  * Example View
  */
-class ExampleView extends widgetize.HTMLElement	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+class ExampleView extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
 {
 	init() 
 	{
