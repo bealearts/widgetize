@@ -19,18 +19,9 @@ class ExampleView extends widgetize.HTMLElement	// Babel expects a Constructor F
 
 	attach(dom) 
 	{
-		//dom.appendChild( bindling(template, this._pm) );
+		bindling(dom, this._pm);
 	}
-
-	update(dom) 
-	{
-		
-	}
-
-	detach(dom)
-	{
-		
-	}	
+	
 }
 
 

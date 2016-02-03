@@ -148,6 +148,10 @@ describe('example-view', function() {
 
 				expect(h3.innerText).to.equal('Example View');
 
+				var button = dom.querySelector('button');
+
+				expect(button.innerText).to.equal('Starting...');
+
 				done();
 			}, 10);
 		});		

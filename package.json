@@ -47,6 +47,7 @@
     "html2js-browserify": "^1.0.0",
     "jshint": "^2.9.1",
     "lodash": "^3.9.3",
+    "object.observe": "^0.2.6",
     "phantomjs": "^1.9.17",
     "run-sequence": "^1.1.0",
     "sinon": "^1.12.2",
