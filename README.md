@@ -1,9 +1,9 @@
 # Widgetize [![Build Status](https://travis-ci.org/bealearts/widgetize.svg)](https://travis-ci.org/bealearts/widgetize) [![npm version](https://badge.fury.io/js/widgetize.svg)](http://badge.fury.io/js/widgetize)
-Custom Element based HTML5 Widgets and Views using Browserify
+[Custom Element](http://w3c.github.io/webcomponents/spec/custom/) based HTML5 Widgets and Views using [Browserify](http://browserify.org/)
 
 Create reusable and encapsulated HTML5 widgets and Application Views using HTML5, CSS3 and Javascript. 
 
-Simply ```npm install``` and ```require()``` a widget and it will be automatically included in your Browserify project, for use in your HTML page as a custom element.
+Simply ```npm install``` and ```require()``` a widget and it will be automatically included in your [Browserify](http://browserify.org/) project, for use in your HTML page as a custom element.
 
 ## Install
 ```shell
@@ -66,25 +66,42 @@ module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></s
 
 ## API
 
-#### widgetize(tagName, constructor [, template] [, options])
+#### `widgetize(tagName, constructor [, template] [, options])`
 
 Create a Custom Element widget and registers it with the browser.
 
-*tagName* ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. ```my-tag```
+**_tagName_** ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. `my-tag`
 
-*constructor* ```Function``` Constructor function for the widgets definition. Can be ```null```. Instances are created with the ```new``` operator.
+**_constructor_** ```Function``` Constructor function for the widgets definition. Can be ```null```. Instances are created with the ```new``` operator.
 
-*template* ```String``` Template to use for the elements HTML content.
+**_template_** ```String``` Template to use for the elements HTML content.
 
-*options* ```Object``` Options
-    *.extend*  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
+**_options_** ```Object``` Options
+
+> **_.extend_**  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
+
+The created widget has a lifecycle which can be programmatically access by the object defined by the Constructor function.
+
+The following methods are avaiable to be overridden by the widget
+
+##### `init()`
+
+##### `attach(dom)`
+
+##### `update(dom)`
+
+##### `detach(dom)`
+
+The following methods are avaiable to be used by the widget
+
+##### `invalidate()`
 
 
-#### widgetize.base(elementProto)
+#### `widgetize.base(elementProto)`
 
-Return a Babel friendly base class to extend
+Return a [Babel](https://babeljs.io/) friendly base class to extend
 
-*elementProto* ```Object``` Element proto object e.g. HTMLElement
+**_elementProto_** `Object` Element proto object e.g. HTMLElement
 
 Babel expects a Constructor Function, not an Object Prototype when using ES6 Class declarations.
 
