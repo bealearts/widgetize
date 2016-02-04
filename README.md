@@ -66,6 +66,29 @@ module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></s
 
 ## API
 
+#### widgetize(tagName, constructor [, template] [, options])
+
+Create a Custom Element widget and registers it with the browser.
+
+*tagName* ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. ```my-tag```
+
+*constructor* ```Function``` Constructor function for the widgets definition. Can be ```null```. Instances are created with the ```new``` operator.
+
+*template* ```String``` Template to use for the elements HTML content.
+
+*options* ```Object``` Options
+    *.extend*  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
+
+
+#### widgetize.base(elementProto)
+
+Return a Babel friendly base class to extend
+
+*elementProto* ```Object``` Element proto object e.g. HTMLElement
+
+Babel expects a Constructor Function, not an Object Prototype when using ES6 Class declarations.
+
+
 ## Examples
 - [Widget](examples/example-widget)
 - [View](examples/example-view)
