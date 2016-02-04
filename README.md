@@ -68,7 +68,7 @@ module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></s
 
 #### `widgetize(tagName, constructor [, template] [, options])`
 
-Create a Custom Element widget and registers it with the browser.
+Creates a widget and registers it with the browser.
 
 **_tagName_** ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. `my-tag`
 
@@ -80,21 +80,40 @@ Create a Custom Element widget and registers it with the browser.
 
 > **_.extend_**  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
 
-The created widget has a lifecycle which can be programmatically access by the object defined by the Constructor function.
+The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
 
-The following methods are avaiable to be overridden by the widget
+###### The following instance methods are avaiable to be overridden by the widget
 
-##### `init()`
+##### `init()` Called when a widget is created, either by being called with `new Widget()` or when parsed by the browser in the DOM.
 
-##### `attach(dom)`
+A good place to initalise instance variables.
 
-##### `update(dom)`
+##### `attach(dom)` Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
 
-##### `detach(dom)`
+The place to make one time modifications to the widget DOM, available as `dom`, and to add event listeners.
 
-The following methods are avaiable to be used by the widget
+`dom` is a reference to the element's shadow DOM if supported, or the element itself.
 
-##### `invalidate()`
+##### `update(dom)` Called after `attach()` and then once per Event Loop execution after a call to `invalidate`.
+
+The place to make updates to the DOM after a change of state of the widget.
+
+By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.  
+
+`dom` is a reference to the element's shadow DOM if supported, or the element itself.
+
+##### `detach(dom)` Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
+
+The place to clean up references and event listeners etc.
+
+`dom` is a reference to the element's shadow DOM if supported, or the element itself.
+
+###### The following instance methods are avaiable to be used by the widget
+
+##### `invalidate()` Invalidates the widget, so that `update()` will be called in the next Event Loop execution.
+
+Multipule called to `invalidate()` within the same Event Loop execution, will once tigger one call to `update()` in the next Event Loop execution.
+
 
 
 #### `widgetize.base(elementProto)`
