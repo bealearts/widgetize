@@ -112,7 +112,7 @@ The place to clean up references and event listeners etc.
 
 ##### `invalidate()` Invalidates the widget, so that `update()` will be called in the next Event Loop execution.
 
-Multipule called to `invalidate()` within the same Event Loop execution, will once tigger one call to `update()` in the next Event Loop execution.
+Multiple calls to `invalidate()` within the same Event Loop execution, will only tigger one call to `update()` in the next Event Loop execution.
 
 
 
