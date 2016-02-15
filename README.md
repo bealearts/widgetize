@@ -80,6 +80,8 @@ Creates a widget and registers it with the browser.
 
 > **_.extend_**  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
 
+> **_.shadow_**  ```String``` Whether to use the ShadowDOM if it is available. Defaults to ```true```.
+
 The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
 
 ###### The following instance methods are avaiable to be overridden by the widget

@@ -9,7 +9,7 @@ const pkg = require('./package.json');
 /**
  * Example Widget
  */
-class ExampleWidget extends widgetize.base(HTMLInputElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+class ExampleWidget extends widgetize.base(HTMLInputElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLInputElement
 {
 	get disabled()
 	{
