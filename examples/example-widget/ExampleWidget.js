@@ -9,14 +9,32 @@ const pkg = require('./package.json');
 /**
  * Example Widget
  */
-class ExampleWidget extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+class ExampleWidget extends widgetize.base(HTMLInputElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
 {
+	get disabled()
+	{
+		return this._disabled;
+	}
+
+	set disabled(value)
+	{
+		if (value !== this._disabled)
+		{
+			this._disabled = value;
+			this.invalidate();
+		}
+	}
+
+
 	init() 
 	{
 		this._timer = null;
 
 		this._timeElement = null;
+
+		this._disabled = false;
 	}
+
 
 	attach(dom) 
 	{
@@ -27,10 +45,15 @@ class ExampleWidget extends widgetize.base(HTMLElement)	// Babel expects a Const
 		}, 1000);
 	}
 
+
 	update(dom) 
 	{
-		this._timeElement.textContent = new Date();
+		if (!this.disabled)	// Note: A better implementation would only run the timer when not disabled.
+		{
+			this._timeElement.textContent = new Date();
+		}
 	}
+
 
 	detach(dom)
 	{

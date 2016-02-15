@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "postinstall": "npm run install:example-widget && npm run install:example-view",
+    "install:examples": "npm run install:example-widget && npm run install:example-view",
     "install:example-widget": "cd examples/example-widget/ && npm install && cd ../../",
     "install:example-view": "cd examples/example-view/ && npm install && cd ../../"
   },

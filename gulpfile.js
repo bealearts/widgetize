@@ -84,9 +84,6 @@ function runBrowserify(config)
 	}
 
 	var b = browserify(setup);
-	// b.transform('jstify', {
-	// 	engine: 'lodash'
-	// });
 
 	if (config.isDev)
 	{

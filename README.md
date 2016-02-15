@@ -128,3 +128,13 @@ Babel expects a Constructor Function, not an Object Prototype when using ES6 Cla
 ## Examples
 - [Widget](examples/example-widget)
 - [View](examples/example-view)
+
+
+## Test
+
+```shell
+npm install
+npm install:examples
+npm test
+```
+
