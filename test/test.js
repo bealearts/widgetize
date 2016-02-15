@@ -25,7 +25,8 @@ describe('example-widget', function() {
 
 			widget = new ExampleWidget();
 
-			var x = expect(widget).to.not.be.null;
+			/* jshint expr: true */
+			expect(widget).to.not.be.null;
 
 		});	
 
@@ -61,7 +62,8 @@ describe('example-widget', function() {
 
 			var node = container.querySelector('example-widget');
 
-			var x = expect(node).to.be.null;
+			/* jshint expr: true */
+			expect(node).to.be.null;
 
 		});	
 
@@ -83,7 +85,8 @@ describe('example-widget', function() {
 			setTimeout(function() {
 				var node = container.querySelector('example-widget');
 
-				var x = expect(node).to.not.be.null;
+				/* jshint expr: true */
+				expect(node).to.not.be.null;
 
 				done();
 			}, 10);
@@ -123,12 +126,18 @@ describe('example-view', function() {
 
 		it('can be added to the DOM', function(done) {
 
-			container.innerHTML = '<example-view></example-view>';
+			container.innerHTML = '<example-view><p>Content</p></example-view>';
 
 			setTimeout(function() {
 				var node = container.querySelector('example-view');
 
-				var x = expect(node).to.not.be.null;
+				/* jshint expr: true */
+				expect(node).to.not.be.null;
+
+				var content = node.querySelector('p');
+
+				/* jshint expr: true */
+				expect(content).to.be.null;
 
 				done();
 			}, 10);

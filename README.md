@@ -28,7 +28,7 @@ class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Construc
         this._timeElement = null;
     }
 
-    attach(dom) 
+    attach(dom, content) 
     {
         this._timeElement = dom.querySelector('time');
 
@@ -88,11 +88,13 @@ The created widget has a lifecycle which can be programmatically accessed by the
 
 A good place to initalise instance variables.
 
-##### `attach(dom)` Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
+##### `attach(dom, content)` Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
 
 The place to make one time modifications to the widget DOM, available as `dom`, and to add event listeners.
 
 `dom` is a reference to the element's shadow DOM if supported, or the element itself.
+
+`content` is a Document Fragment containing any content the element had.
 
 ##### `update(dom)` Called after `attach()` and then once per Event Loop execution after a call to `invalidate`.
 
