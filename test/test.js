@@ -88,6 +88,11 @@ describe('example-widget', function() {
 				/* jshint expr: true */
 				expect(node).to.not.be.null;
 
+				var content = node.querySelector('p');
+
+				/* jshint expr: true */
+				expect(content).to.be.null;
+
 				done();
 			}, 10);
 
@@ -133,11 +138,6 @@ describe('example-view', function() {
 
 				/* jshint expr: true */
 				expect(node).to.not.be.null;
-
-				var content = node.querySelector('p');
-
-				/* jshint expr: true */
-				expect(content).to.be.null;
 
 				done();
 			}, 10);
