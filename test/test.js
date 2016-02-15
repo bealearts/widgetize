@@ -7,6 +7,8 @@ var expect = require('chai').expect;
 var ExampleWidget = require('../examples/example-widget');
 var ExampleView = require('../examples/example-view');
 
+require('../examples/bs-button');
+
 after(function(){
 	var container = document.querySelector('#test');
 	container.innerHTML = '';
@@ -42,16 +44,22 @@ describe('example-widget', function() {
 		});	
 
 
-		it('contains its template content', function() {
+		it('contains its template content', function(done) {
 
 			var element = container.querySelector('example-widget');
 			var dom = element.shadowRoot ? element.shadowRoot : element;
 
-			expect(dom.innerHTML).to.not.equal('');
+			setTimeout(function() {
 
-			var h3 = dom.querySelector('h3');
+				expect(dom.innerHTML).to.not.equal('');
 
-			expect(h3.innerText).to.equal('Example Widget');
+				var h3 = dom.querySelector('h3');
+
+				expect(h3.innerText).to.equal('Example Widget');
+
+				done();
+
+			}, 10);
 
 		});	
 
