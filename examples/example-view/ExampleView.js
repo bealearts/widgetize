@@ -19,10 +19,11 @@ class ExampleView extends widgetize.base(HTMLElement)	// Babel expects a Constru
 
 	attach(dom) 
 	{
-		bindling(dom, this._pm);
+		dom.appendChild( bindling(template, this._pm) );
+		this._pm.init();
 	}
 	
 }
 
 
-module.exports = widgetize(pkg.name, ExampleView, template);
+module.exports = widgetize(pkg.name, ExampleView);
