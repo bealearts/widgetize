@@ -78,8 +78,6 @@ Creates a widget and registers it with the browser.
 
 **_options_** ```Object``` Options
 
-> **_.extend_**  ```String``` Tag name of the element to extend. Defaults to ```Element``` for HTMLElement
-
 > **_.shadow_**  ```String``` Whether to use the ShadowDOM if it is available. Defaults to ```true```.
 
 The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
@@ -138,7 +136,7 @@ Babel expects a Constructor Function, not an Object Prototype when using ES6 Cla
 
 ```shell
 npm install
-npm install:examples
+npm run install:examples
 npm test
 ```
 
