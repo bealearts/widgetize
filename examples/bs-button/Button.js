@@ -40,20 +40,5 @@ class Button extends widgetize.base(HTMLButtonElement)
 }
 
 
-module.exports = delegate( widgetize(pkg.name, Button, null, {shadow: false, extend: 'button'}) );
+module.exports = widgetize(pkg.name, Button, null, {shadow: false, extend: 'button'});
 
-
-function delegate(Target) {
-
-	var Delegate = function() {
-		new Target();
-	};
-	
-	//Delegate.prototype = Target.prototype;
-
-	Delegate.prototype.attach = function(dom, content) {
-		console.log('Hi');
-	};
-
-	return Delegate;
-};
