@@ -5,9 +5,8 @@ before_script:
 - npm install -g gulp
 deploy:
   provider: npm
-  email: david.beale@bealearts.co.uk
   api_key:
-    secure: kOkPruNaipAoPdoojPiRjaJ7iRYbWaYrvlJ1ZWtICFxX7JuwINZQzN5EKjeOdRLjh05WRocy2KwTXZ5TvPjNx6KTBe6p2Ut/NnDmW3XdklyrSSSEJ95c+G6XpcNNItNrnEmI4PHLa5lfIrEL1PuP0NLegksd+9ElgUpTDuxsaeY=
+    secure: kKnf/z4uKl0b/xc+2xhak4e+oL0sM2eevVpZOagwpubDXuQIvbyH77XrjrmOAuYHBSN6u/JsNOogeWL+NfS94a/Eb/ZE23l+i9dkEI64iCgjNpMbuE3VZaxjlddk6EmzRyz8qg1zG+6jzEa0E8Eqd1VcSlpttDXrgyXUu4xZsl3fX9XcdtZklDTpY5HCbpCj5TTmj6p7SQdZiPukrsVZfWn4r6nxGn03bmHZXqaohnAHMkpq+F/gyflBobJJKmRLmM+iHx3LZUiGtEKLxJWrjRl4Xm22fk1yBfjVnTzvPaUJjTk0zuRaqac0u4F88qJ27yGrjYb79ztHzA3CkpSq+0+bKAHapN/Y4d7KGMQlRrCLrlIcWED3VSAhaHZwKqNREPFqyK7GIUFzctrfUcOKI2VGETpIxOA1vF/RoN67ErGPEC/QKb8q3obpFv2c1WvMKBO4SP+isWsjjbAxXUmzE9sVzOU+vUoXy7bXpA0h7SZgFWyTCkRtn0LzS9c3bbuEV+GiPqipynQYgh6bVI7vJjbgFjn5HXxysYO8fOO7ZRKarZeIo41L8e28zBpL7ncddEx4pW7Gh0aUhi/6zHsSzzEvrqN7+BFDvqMBE4lIbgstny8GhLvcYXFpf/zEoo0vJ6g+aH781LsqMMzGQGlUp3JEZY704qwIDWzOzdQlqI8=
   on:
     all_branches: true
     tags: true
