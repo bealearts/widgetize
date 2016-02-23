@@ -126,7 +126,7 @@ By waiting for `update()` to be called, DOM updates for multipule changes of sta
 
 Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
 
-**_dom-** is a reference to the element's shadow DOM if supported, or the element itself.
+**_dom_** is a reference to the element's shadow DOM if supported, or the element itself.
 
 The place to clean up references and event listeners etc.
 
