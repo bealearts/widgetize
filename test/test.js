@@ -167,7 +167,7 @@ describe('example-view', function() {
 
 				var button = dom.querySelector('button');
 
-				expect(button.innerText).to.equal('Starting...');
+				expect(button.innerText).to.equal('Click To Count');
 
 				done();
 			}, 10);

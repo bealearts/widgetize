@@ -20,6 +20,6 @@
     "html2js-browserify": "^1.0.0"
   },
   "dependencies": {
-    "bindling": "^1.1.2"
+    "bindling": "^2.0.0"
   }
 }
