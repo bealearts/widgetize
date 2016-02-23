@@ -82,40 +82,6 @@ Creates a widget and registers it with the browser.
 
 The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
 
-###### The following instance methods are avaiable to be overridden by the widget
-
-##### `init()` Called when a widget is created, either by being called with `new Widget()` or when parsed by the browser in the DOM.
-
-A good place to initalise instance variables.
-
-##### `attach(dom, content)` Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
-
-The place to make one time modifications to the widget DOM, available as `dom`, and to add event listeners.
-
-`dom` is a reference to the element's shadow DOM if supported, or the element itself.
-
-`content` is a Document Fragment containing any content the element had.
-
-##### `update(dom)` Called after `attach()` and then once per Event Loop execution after a call to `invalidate`.
-
-The place to make updates to the DOM after a change of state of the widget.
-
-By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.  
-
-`dom` is a reference to the element's shadow DOM if supported, or the element itself.
-
-##### `detach(dom)` Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
-
-The place to clean up references and event listeners etc.
-
-`dom` is a reference to the element's shadow DOM if supported, or the element itself.
-
-###### The following instance methods are avaiable to be used by the widget
-
-##### `invalidate()` Invalidates the widget, so that `update()` will be called in the next Event Loop execution.
-
-Multiple calls to `invalidate()` within the same Event Loop execution, will only tigger one call to `update()` in the next Event Loop execution.
-
 
 
 #### `widgetize.base(elementProto)`
@@ -125,6 +91,53 @@ Return a [Babel](https://babeljs.io/) friendly base class to extend
 **_elementProto_** `Object` Element proto object e.g. HTMLElement
 
 Babel expects a Constructor Function, not an Object Prototype when using ES6 Class declarations.
+
+
+
+### The following instance methods are avaiable to be overridden by the widget
+
+##### `init()` 
+
+Called when a widget is created, either by being called with `new Widget()` or when parsed by the browser in the DOM.
+
+A good place to initalise instance variables.
+
+##### `attach(dom, content)` 
+
+Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
+
+**_dom_** is a reference to the element's shadow DOM if supported, or the element itself.
+
+**_content_** is a Document Fragment containing any content the element had.
+
+The place to make one time modifications to the widget DOM, available as `dom`, and to add event listeners.
+
+##### `update(dom)` 
+
+Called after `attach()` and then once per Event Loop execution after a call to `invalidate`.
+
+**_dom_** is a reference to the element's shadow DOM if supported, or the element itself.
+
+The place to make updates to the DOM after a change of state of the widget.
+
+By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.  
+
+##### `detach(dom)` 
+
+Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
+
+**_dom-** is a reference to the element's shadow DOM if supported, or the element itself.
+
+The place to clean up references and event listeners etc.
+
+### The following instance methods are avaiable to be used by the widget
+
+##### `invalidate()` 
+
+Invalidates the widget, so that `update()` will be called in the next Event Loop execution.
+
+Multiple calls to `invalidate()` within the same Event Loop execution, will only tigger one call to `update()` in the next Event Loop execution.
+
 
 
 ## Examples
