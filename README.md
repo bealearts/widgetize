@@ -18,7 +18,7 @@ npm install document-register-element --save
 
 ## Usage
 
-> ES6 Systax is optional
+> ES6 Syntax is optional
 
 #### JS
 ```js
