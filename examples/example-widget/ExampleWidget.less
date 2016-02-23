@@ -1,0 +1,26 @@
+
+/* Styles for the Widget */
+.widget()
+{
+	time
+	{
+		font-weight: bold;
+	}
+
+	h3
+	{
+		color: red;
+	}
+}
+
+/* Non shadow DOM selector */
+example-widget
+{
+	.widget();
+}
+
+/* Shadow DOM selector */
+example-widget::shadow
+{
+	.widget();
+}
