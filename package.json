@@ -1,7 +1,7 @@
 {
   "name": "widgetize",
   "description": "Custom Element based HTML5 Widgets and Views using Browserify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/widgetize.js",
   "repository": {
     "type": "git",
