@@ -1,7 +1,7 @@
 # Widgetize [![Build Status](https://travis-ci.org/bealearts/widgetize.svg)](https://travis-ci.org/bealearts/widgetize) [![npm version](https://badge.fury.io/js/widgetize.svg)](http://badge.fury.io/js/widgetize)
 [Custom Element](http://w3c.github.io/webcomponents/spec/custom/) based HTML5 Widgets and Views using [Browserify](http://browserify.org/)
 
-Create reusable and encapsulated HTML5 widgets and Application Views using HTML5, CSS3 and Javascript. 
+Create reusable and encapsulated HTML5 Widgets and Application Views using HTML5, CSS3 and Javascript. 
 
 Simply ```npm install``` and ```require()``` a widget and it will be automatically included in your [Browserify](http://browserify.org/) project, for use in your HTML page as a custom element.
 
@@ -17,6 +17,8 @@ npm install document-register-element --save
 ```
 
 ## Usage
+
+> ES6 Systax is optional
 
 #### JS
 ```js
