@@ -7,6 +7,9 @@ const pkg = require('./package.json');
 const ExampleViewPM = require('./ExampleViewPM.js');
 const bindling = require('bindling');
 
+// Widgets
+require('../example-widget');
+
 /**
  * Example View
  */
