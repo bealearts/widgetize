@@ -7,7 +7,13 @@ Simply ```npm install``` and ```require()``` a widget and it will be automatical
 
 ## Install
 ```shell
-npm install widgetize --save-dev
+npm install widgetize --save
+```
+
+You may also require a custom element polyfill.
+
+```shell
+npm install document-register-element --save
 ```
 
 ## Usage
@@ -68,7 +74,7 @@ module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></s
 
 #### `widgetize(tagName, constructor [, template] [, options])`
 
-Creates a widget and registers it with the browser.
+Creates a widget and registers it with the browser. Returns a refernce to the widget's constructor.
 
 **_tagName_** ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. `my-tag`
 
@@ -81,7 +87,6 @@ Creates a widget and registers it with the browser.
 > **_.shadow_**  ```String``` Whether to use the ShadowDOM if it is available. Defaults to ```true```.
 
 The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
-
 
 
 #### `widgetize.base(elementProto)`
