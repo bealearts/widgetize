@@ -7,8 +7,6 @@ var expect = require('chai').expect;
 var ExampleWidget = require('../examples/example-widget');
 var ExampleView = require('../examples/example-view');
 
-require('../examples/bs-button');
-
 after(function(){
 	var container = document.querySelector('#test');
 	container.innerHTML = '';
@@ -167,7 +165,7 @@ describe('example-view', function() {
 
 				var button = dom.querySelector('button');
 
-				expect(button.innerText).to.equal('Starting...');
+				expect(button.innerText).to.equal('Click To Count');
 
 				done();
 			}, 10);

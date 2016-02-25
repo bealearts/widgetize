@@ -92,6 +92,12 @@ function runBrowserify(config)
       	b.on('log', gutil.log);
 	}
 
+	b.plugin('parcelify', {
+		bundles: {
+			style : 'tmp/test/test.css'
+		}
+	});
+
 	function bundle()
 	{
 		return b
