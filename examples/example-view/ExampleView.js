@@ -15,13 +15,11 @@ require('../example-widget');
  */
 class ExampleView extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
 {
-	init() 
-	{
+	init() {
 		this._pm = new ExampleViewPM();
 	}
 
-	attach(dom) 
-	{
+	attach(dom) {
 		dom.appendChild( bindling(template, this._pm) );
 		this._pm.init();
 	}

@@ -1,7 +1,7 @@
 # Widgetize [![Build Status](https://travis-ci.org/bealearts/widgetize.svg)](https://travis-ci.org/bealearts/widgetize) [![npm version](https://badge.fury.io/js/widgetize.svg)](http://badge.fury.io/js/widgetize)
 [Custom Element](http://w3c.github.io/webcomponents/spec/custom/) based HTML5 Widgets and Views using [Browserify](http://browserify.org/)
 
-Create reusable and encapsulated HTML5 Widgets and Application Views using HTML5, CSS3 and Javascript. 
+Create reusable and encapsulated HTML5 Widgets and Application Views using HTML5, CSS3 and Javascript.
 
 Simply ```npm install``` and ```require()``` a widget and it will be automatically included in your [Browserify](http://browserify.org/) project, for use in your HTML page as a custom element.
 
@@ -29,15 +29,13 @@ const widgetize = require('widgetize');
  */
 class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
 {
-    init() 
-    {
+    init() {
         this._timer = null;
 
         this._timeElement = null;
     }
 
-    attach(dom, content) 
-    {
+    attach(dom, content) {
         this._timeElement = dom.querySelector('time');
 
         this._timer = setInterval(() => {
@@ -45,19 +43,17 @@ class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Construc
         }, 1000);
     }
 
-    update(dom) 
-    {
+    update(dom) {
         this._timeElement.textContent = new Date();
     }
 
-    detach(dom)
-    {
+    detach(dom) {
         clearInterval(this._timer);
-    }	
+    }
 }
 
 
-module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></span>');
+module.exports = widgetize('time-widget', TimeWidget, 'The Time is: <span></span>');
 ```
 
 #### HTML
@@ -67,7 +63,7 @@ module.exports = widgetize('time-widget', ExampleWidget, 'The Time is: <span></s
         <script src="bundle.js"></script>
     </head>
     <body>
-        <time-widget></time-widget>	
+        <time-widget></time-widget>
     </body>
 </html>
 ```
@@ -103,13 +99,13 @@ Babel expects a Constructor Function, not an Object Prototype when using ES6 Cla
 
 ### The following instance methods are avaiable to be overridden by the widget
 
-##### `init()` 
+##### `init()`
 
 Called when a widget is created, either by being called with `new Widget()` or when parsed by the browser in the DOM.
 
 A good place to initalise instance variables.
 
-##### `attach(dom, content)` 
+##### `attach(dom, content)`
 
 Called when the widget is added to the DOM, either by being used with `.appendChild(widget)` or when rendered by the browser in the DOM.
 
@@ -119,7 +115,7 @@ Called when the widget is added to the DOM, either by being used with `.appendCh
 
 The place to make one time modifications to the widget DOM, available as `dom`, and to add event listeners.
 
-##### `update(dom)` 
+##### `update(dom)`
 
 Called after `attach()` and then once per Event Loop execution after a call to `invalidate`.
 
@@ -127,9 +123,9 @@ Called after `attach()` and then once per Event Loop execution after a call to `
 
 The place to make updates to the DOM after a change of state of the widget.
 
-By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.  
+By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.
 
-##### `detach(dom)` 
+##### `detach(dom)`
 
 Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
 
@@ -139,7 +135,7 @@ The place to clean up references and event listeners etc.
 
 ### The following instance methods are avaiable to be used by the widget
 
-##### `invalidate()` 
+##### `invalidate()`
 
 Invalidates the widget, so that `update()` will be called in the next Event Loop execution.
 

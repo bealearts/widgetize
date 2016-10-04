@@ -1,21 +1,18 @@
 
 module.exports = class ExampleViewPM
 {
-	constructor()
-	{
+	constructor() {
 		this.message = '';
 		this.count = 0;
 	}
 
 
-	init()
-	{
+	init() {
 		this.message = 'Click To Count';
 	}
 
 
-	inc()
-	{
+	inc() {
 		this.count++;
 	}
 };
