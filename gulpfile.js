@@ -29,7 +29,7 @@ var isDev = false;
 
 
 gulp.task('clean', function(callback){
-	del(['tmp'], callback);
+	del(['tmp']).then(callback());
 });
 
 
@@ -67,7 +67,7 @@ gulp.task('watch', function() {
 	});
 });
 
- 
+
 
 
 
@@ -109,4 +109,3 @@ function runBrowserify(config)
 
 	return bundle();
 }
-
