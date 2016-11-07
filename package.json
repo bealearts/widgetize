@@ -16,7 +16,7 @@
     "url": "http://bealearts.co.uk/"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.4.5"
   },
   "scripts": {
     "test": "gulp test",
