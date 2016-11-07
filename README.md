@@ -1,9 +1,9 @@
 # Widgetize [![Build Status](https://travis-ci.org/bealearts/widgetize.svg)](https://travis-ci.org/bealearts/widgetize) [![npm version](https://badge.fury.io/js/widgetize.svg)](http://badge.fury.io/js/widgetize)
-[Custom Element](http://w3c.github.io/webcomponents/spec/custom/) based HTML5 Widgets and Views using [Browserify](http://browserify.org/)
+[Custom Element](http://w3c.github.io/webcomponents/spec/custom/) based HTML5 Widgets and Views using [Browserify](http://browserify.org/) or [Webpack](https://webpack.github.io/)
 
 Create reusable and encapsulated HTML5 Widgets and Application Views using HTML5, CSS3 and Javascript.
 
-Simply ```npm install``` and ```require()``` a widget and it will be automatically included in your [Browserify](http://browserify.org/) project, for use in your HTML page as a custom element.
+Simply ```npm install``` and ```require() / import``` a widget and it will be automatically included in your [Browserify](http://browserify.org/) or [Webpack](https://webpack.github.io/) project, for use in your HTML page as a custom element.
 
 ## Install
 ```shell
@@ -22,12 +22,12 @@ npm install document-register-element --save
 
 #### JS
 ```js
-const widgetize = require('widgetize');
+import widgetize from 'widgetize';
 
 /**
  * Time Widget
  */
-class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Constructor Function, not an Object Prototype i.e. HTMLElement
+class TimeWidget extends HTMLElement
 {
     init() {
         this._timer = null;
@@ -53,7 +53,7 @@ class TimeWidget extends widgetize.base(HTMLElement)	// Babel expects a Construc
 }
 
 
-module.exports = widgetize('time-widget', TimeWidget, 'The Time is: <span></span>');
+export default widgetize('time-widget', TimeWidget, 'The Time is: <span></span>');
 ```
 
 #### HTML
@@ -72,7 +72,7 @@ module.exports = widgetize('time-widget', TimeWidget, 'The Time is: <span></span
 
 #### `widgetize(tagName, constructor [, template] [, options])`
 
-Creates a widget and registers it with the browser. Returns a refernce to the widget's constructor.
+Creates a widget and registers it with the browser. Returns a reference to the widget's constructor.
 
 **_tagName_** ```String``` Tag name of the element to use in HTML. Must contain at least one -. e.g. `my-tag`
 
@@ -87,23 +87,13 @@ Creates a widget and registers it with the browser. Returns a refernce to the wi
 The created widget has a lifecycle which can be programmatically accessed by the object defined by the Constructor function.
 
 
-#### `widgetize.base(elementProto)`
-
-Return a [Babel](https://babeljs.io/) friendly base class to extend
-
-**_elementProto_** `Object` Element proto object e.g. HTMLElement
-
-Babel expects a Constructor Function, not an Object Prototype when using ES6 Class declarations.
-
-
-
-### The following instance methods are avaiable to be overridden by the widget
+### The following instance methods are available to be overridden by the widget
 
 ##### `init()`
 
 Called when a widget is created, either by being called with `new Widget()` or when parsed by the browser in the DOM.
 
-A good place to initalise instance variables.
+A good place to initialise instance variables.
 
 ##### `attach(dom, content)`
 
@@ -123,17 +113,17 @@ Called after `attach()` and then once per Event Loop execution after a call to `
 
 The place to make updates to the DOM after a change of state of the widget.
 
-By waiting for `update()` to be called, DOM updates for multipule changes of state can be scheduled together.
+By waiting for `update()` to be called, DOM updates for multiple changes of state can be scheduled together.
 
 ##### `detach(dom)`
 
-Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the elemnt from the DOM.
+Called when the widget is removed from the DOM, either by being used with `` or when the browser removes the element from the DOM.
 
 **_dom_** is a reference to the element's shadow DOM if supported, or the element itself.
 
 The place to clean up references and event listeners etc.
 
-### The following instance methods are avaiable to be used by the widget
+### The following instance methods are available to be used by the widget
 
 ##### `invalidate()`
 
@@ -155,4 +145,3 @@ npm install
 npm run install:examples
 npm test
 ```
-

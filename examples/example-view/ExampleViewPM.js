@@ -1,5 +1,5 @@
 
-module.exports = class ExampleViewPM
+export default class ExampleViewPM
 {
 	constructor() {
 		this.message = '';
@@ -15,4 +15,4 @@ module.exports = class ExampleViewPM
 	inc() {
 		this.count++;
 	}
-};
+}

@@ -1,9 +1,6 @@
-
-'use strict';
-
-const widgetize = require('widgetize');
-const template = require('./ExampleWidget.html');
-const pkg = require('./package.json');
+import widgetize from 'widgetize';
+import template from './ExampleWidget.html';
+import pkg from './package.json';
 
 
 /**
@@ -23,9 +20,9 @@ class ExampleWidget extends HTMLElement
 	attach(dom) {
 		this._timeElement = dom.querySelector('time');
 
-		// this._timer = setInterval(() => {
-		// 	this.invalidate();
-		// }, 1000);
+		this._timer = setInterval(() => {
+			this.invalidate();
+		}, 1000);
 	}
 
 
@@ -37,9 +34,9 @@ class ExampleWidget extends HTMLElement
 
 
 	detach(dom) {
-		//clearInterval(this._timer);
+		clearInterval(this._timer);
 	}
 }
 
 
-module.exports = widgetize(pkg.name, ExampleWidget, template);
+export default widgetize(pkg.name, ExampleWidget, template);

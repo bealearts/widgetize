@@ -1,14 +1,14 @@
 
 'use strict';
 
-const widgetize = require('widgetize');
-const template = require('./ExampleView.html');
-const pkg = require('./package.json');
-const ExampleViewPM = require('./ExampleViewPM.js');
-const bindling = require('bindling');
+import widgetize from 'widgetize';
+import template from './ExampleView.html';
+import pkg from './package.json';
+import ExampleViewPM from './ExampleViewPM.js';
+import bindling from 'bindling';
 
 // Widgets
-require('../example-widget');
+import exampleWidget from '../example-widget';
 
 /**
  * Example View
@@ -27,4 +27,4 @@ class ExampleView extends HTMLElement
 }
 
 
-module.exports = widgetize(pkg.name, ExampleView);
+export default widgetize(pkg.name, ExampleView);
