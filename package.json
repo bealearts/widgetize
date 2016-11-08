@@ -46,7 +46,7 @@
     "lodash": "^4.16.6",
     "mocha": "^3.1.2",
     "parcelify": "^2.2.0",
-    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.13",
     "run-sequence": "^1.2.2",
     "sinon": "^1.17.6",
     "vinyl-source-stream": "^1.1.0",
