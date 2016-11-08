@@ -2,127 +2,127 @@
 
 /*jshint -W079 */
 var expect = require('chai').expect;
+var sinon = require('sinon');
 
 
 var ExampleWidget = require('../examples/example-widget');
 var ExampleView = require('../examples/example-view');
 
 after(function(){
-	var container = document.querySelector('#test');
-	container.innerHTML = '';
+    var container = document.querySelector('#test');
+    container.innerHTML = '';
 });
-
 
 
 describe('example-widget', function() {
 
-	describe('programmatically', function() {
+    describe('programmatically', function() {
 
-		var widget;
-		var container = document.querySelector('#test');
+        var widget;
+        var container = document.querySelector('#test');
 
-		it('can be created', function() {
+        it('can be created', function() {
 
-			widget = new ExampleWidget();
+            widget = new ExampleWidget();
 
-			/* jshint expr: true */
-			expect(widget).to.not.be.null;
+            /* jshint expr: true */
+            expect(widget).to.not.be.null;
 
-		});	
-
-
-		it('can be added to the DOM', function() {
-
-			container.appendChild(widget);
-
-			var node = container.querySelector('example-widget');
-
-			expect(node).to.equal(widget);
-
-		});	
+        });
 
 
-		it('contains its template content', function(done) {
+        it('can be added to the DOM', function() {
 
-			var element = container.querySelector('example-widget');
-			var dom = element.shadowRoot ? element.shadowRoot : element;
+            container.appendChild(widget);
 
-			setTimeout(function() {
+            var node = container.querySelector('example-widget');
 
-				expect(dom.innerHTML).to.not.equal('');
+            expect(node).to.equal(widget);
 
-				var h3 = dom.querySelector('h3');
-
-				expect(h3.innerText).to.equal('Example Widget');
-
-				done();
-
-			}, 10);
-
-		});	
+        });
 
 
-		it('can be removed from the DOM', function() {
+        it('contains its template content', function(done) {
 
-			container.removeChild(widget);
+            var element = container.querySelector('example-widget');
+            var dom = element.shadowRoot ? element.shadowRoot : element;
 
-			var node = container.querySelector('example-widget');
+            setTimeout(function() {
 
-			/* jshint expr: true */
-			expect(node).to.be.null;
+                expect(dom.innerHTML).to.not.equal('');
 
-		});	
+                var h3 = dom.querySelector('h3');
 
-	});
+                expect(h3.innerText).to.equal('Example Widget');
+
+                done();
+
+            }, 10);
+
+        });
 
 
+        it('can be removed from the DOM', function() {
+
+            container.removeChild(widget);
+
+            var node = container.querySelector('example-widget');
+
+            /* jshint expr: true */
+            expect(node).to.be.null;
+
+        });
+
+    });
 
 
 
-	describe('declaratively', function() {
-
-		var container = document.querySelector('#test');
 
 
-		it('can be added to the DOM', function(done) {
+    describe('declaratively', function() {
 
-			container.innerHTML = '<example-widget></example-widget>';
-
-			setTimeout(function() {
-				var node = container.querySelector('example-widget');
-
-				/* jshint expr: true */
-				expect(node).to.not.be.null;
-
-				var content = node.querySelector('p');
-
-				/* jshint expr: true */
-				expect(content).to.be.null;
-
-				done();
-			}, 10);
-
-		});
+        var container = document.querySelector('#test');
 
 
-		it('contains its template content', function(done) {
+        it('can be added to the DOM', function(done) {
 
-			var element = container.querySelector('example-widget');
-			var dom = element.shadowRoot ? element.shadowRoot : element;
+            container.innerHTML = '<example-widget></example-widget>';
 
-			setTimeout(function() {
-				expect(dom.innerHTML).to.not.equal('');
+            setTimeout(function() {
+                var node = container.querySelector('example-widget');
 
-				var h3 = dom.querySelector('h3');
+                /* jshint expr: true */
+                expect(node).to.not.be.null;
 
-				expect(h3.innerText).to.equal('Example Widget');
+                var content = node.querySelector('p');
 
-				done();
-			}, 10);
-		});		
+                /* jshint expr: true */
+                expect(content).to.be.null;
+
+                done();
+            }, 10);
+
+        });
 
 
-	});	
+        it('contains its template content', function(done) {
+
+            var element = container.querySelector('example-widget');
+            var dom = element.shadowRoot ? element.shadowRoot : element;
+
+            setTimeout(function() {
+                expect(dom.innerHTML).to.not.equal('');
+
+                var h3 = dom.querySelector('h3');
+
+                expect(h3.innerText).to.equal('Example Widget');
+
+                done();
+            }, 10);
+        });
+
+
+    });
 
 });
 
@@ -130,50 +130,48 @@ describe('example-widget', function() {
 
 describe('example-view', function() {
 
-	describe('declaratively', function() {
+    describe('declaratively', function() {
 
-		var container = document.querySelector('#test');
-
-
-		it('can be added to the DOM', function(done) {
-
-			container.innerHTML = '<example-view><p>Content</p></example-view>';
-
-			setTimeout(function() {
-				var node = container.querySelector('example-view');
-
-				/* jshint expr: true */
-				expect(node).to.not.be.null;
-
-				done();
-			}, 10);
-
-		});
+        var container = document.querySelector('#test');
 
 
-		it('contains its template content', function(done) {
+        it('can be added to the DOM', function(done) {
 
-			var element = container.querySelector('example-view');
-			var dom = element.shadowRoot ? element.shadowRoot : element;
+            container.innerHTML = '<example-view><p>Content</p></example-view>';
 
-			setTimeout(function() {
-				expect(dom.innerHTML).to.not.equal('');
+            setTimeout(function() {
+                var node = container.querySelector('example-view');
 
-				var h3 = dom.querySelector('h1');
+                /* jshint expr: true */
+                expect(node).to.not.be.null;
 
-				expect(h3.innerText).to.equal('Example View');
+                done();
+            }, 10);
 
-				var button = dom.querySelector('button');
-
-				expect(button.innerText).to.equal('Click To Count');
-
-				done();
-			}, 10);
-		});		
+        });
 
 
-	});	
+        it('contains its template content', function(done) {
+
+            var element = container.querySelector('example-view');
+            var dom = element.shadowRoot ? element.shadowRoot : element;
+
+            setTimeout(function() {
+                expect(dom.innerHTML).to.not.equal('');
+
+                var h3 = dom.querySelector('h1');
+
+                expect(h3.innerText).to.equal('Example View');
+
+                var button = dom.querySelector('button');
+
+                expect(button.innerText).to.equal('Click To Count');
+
+                done();
+            }, 10);
+        });
+
+
+    });
 
 });
-
-
